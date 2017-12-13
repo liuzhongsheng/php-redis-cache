@@ -30,3 +30,5 @@ return [
     'password'      => '',//redis密码
 ]
 </pre>
+
+<p>以上为代码内容，欢迎大家提提建议或者加入QQ群：456605791 交流，如果觉得代码写得还行请赞一个谢谢! <a href="https://www.php63.cc">www.php63.cc</a></p>
