@@ -136,8 +136,24 @@ class RedisCache
      * @param $key 要删除的key
      * @return int 成功返回受影响的行数
      */
-    public function delCache($key)
+    public function clearCache($key)
     {
-        return $this->redis->del($this->prefix.$key);
+        $data = $this->getCacheList($key);
+        if (!empty($data)) {
+            foreach ($data as $key => $value) {
+                 $this->redis->del($value);
+            }
+        }
+        return true;
+    }
+
+    /**
+     * 搜索所有key
+     * @param $key 要搜索的key
+     * @return int 成功返回受影响的行数
+     */
+    public function getCacheList($key = '*')
+    {
+        return $this->redis->keys($key);
     }
 }
